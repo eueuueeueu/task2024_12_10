@@ -1,0 +1,9 @@
+前面1.mp4 2.mp4 3.mp4都是作业
+外加：
+4.回到滚动到底部的页面会到顶部
+5.使用setTimeout模拟setInterval
+
+
+
+提示：元素位置移动不要使用定位然后通过top和left控制
+建议使用transform: translateX(xxx);

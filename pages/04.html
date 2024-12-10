@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* html,
+    body{
+      scroll-behavior: smooth;
+    } */
+    .div {
+      height: 500vh;
+      background: linear-gradient(red, yellow);
+    }
+
+    .top {
+      display: none;
+      position: fixed;
+      bottom: 50px;
+      right: 50px;
+    }
+
+    .a {
+      width: 300px;
+      height: 300px;
+    }
+
+    .b {
+      width: 600px;
+      background-color: yellow;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="a b" style="background-color: aqua;"></div>
+  <div class="div">
+    <span class="top">回到顶部</span>
+  </div>
+</body>
+<script src="../js/04.js"></script>
+
+</html>

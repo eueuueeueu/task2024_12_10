@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .main {
+      position: relative;
+      left: 0px;
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(red, yellow);
+      /* transform: translateX(12px); */
+      /* transition: all cubic-bezier(0,0,0.58,1.0); */
+    }
+
+    .symb {
+      width: 1px;
+      background-color: black;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 500px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main"></div>
+  <div class="symb"></div>
+</body>
+<script>
+  let main = document.querySelector('.main')
+  let symb = document.querySelector('.symb')
+  let stepLength = 11
+  let terminal = 500
+  // 现在的位置
+  let currentLeft = parseInt(getComputedStyle(main).left)
+  let nextLeftValue = currentLeft
+  let timerId = setInterval(() => {
+    // 下一步的位置
+    nextLeftValue = nextLeftValue + stepLength
+    // 最后一步的位置
+    let lastStepValue = terminal - nextLeftValue
+    console.log(lastStepValue);
+
+    if (lastStepValue < stepLength) {
+      nextLeftValue += lastStepValue
+      clearInterval(timerId)
+    }
+    // main.style.left = nextLeftValue+'px'
+    main.style.transform = `translateX(${nextLeftValue}px)`;
+  }, 17)
+  function cubicBezier(x1, y1, x2, y2, t) {
+    // let x = 3 * t * Math.pow(1 - t, 2) * x1 + 3 * Math.pow(t, 2) * (1 - t) * x2 + Math.pow(t, 3)
+    let y = 3 * t * Math.pow(1 - t, 2) * y1 + 3 * Math.pow(t, 2) * (1 - t) * y2 + Math.pow(t, 3)
+    return y
+  }
+  // 假设运动总时长10s 每一循环代表3s
+  // 总距离800
+  for (let i = 1; i <= 10; i++) {
+    console.log(cubicBezier(0, 1.95, 1, -0.79, i / 10) * 800);
+  }
+</script>
+
+</html>
