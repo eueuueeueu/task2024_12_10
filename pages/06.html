@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>catflix</title>
+  <link rel="stylesheet" href="../styles/index.css">
+  <link rel="stylesheet" href="../styles/base.css">
+</head>
+
+<body>
+  <svg style="display: none;">
+    <symbol id="icon1" viewBox="0 0 24 24">
+      <path fill="currentColor"
+        d="m18.031 16.617l4.283 4.282l-1.415 1.415l-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9s9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617m-2.006-.742A6.98 6.98 0 0 0 18 11c0-3.867-3.133-7-7-7s-7 3.133-7 7s3.133 7 7 7a6.98 6.98 0 0 0 4.875-1.975z" />
+    </symbol>
+    <symbol id="icon2" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+        <circle cx="12" cy="8" r="5" />
+        <path d="M20 21a8 8 0 0 0-16 0" />
+      </g>
+    </symbol>
+  </svg>
+  <header>
+    <a class="header_left" href="#">
+      <img src="../images/catflix.svg" alt="">
+    </a>
+    <div class="header_middle">
+      <a href="#" class="header_middle_item">
+        <img src="../images/home.svg" alt="">
+        <span>Home</span>
+      </a>
+      <a href="#" class="header_middle_item">
+        <img src="../images/movie.svg" alt="">
+        <span>Movies</span>
+      </a>
+      <a href="#" class="header_middle_item">
+        <img src="../images/series.svg" alt="">
+        <span>Series</span>
+      </a>
+    </div>
+    <div class="header_right">
+      <a class="header_right_search" href="#">
+        <svg>
+          <use xlink:href="#icon1"></use>
+        </svg>
+        <span>Search</span>
+      </a>
+      <div class="header_right_user">
+        <svg>
+          <use xlink:href="#icon2"></use>
+        </svg>
+      </div>
+    </div>
+  </header>
+  <article>
+    <div class="article_subject">
+      <img src="../images/catflix.svg" alt="" class="article_subject_img">
+      <p>Watch Movies Online For Free</p>
+      <div class="article_subject_search">
+        <img src="../images/search.svg" alt="">
+        <input type="text" placeholder="Search...">
+      </div>
+      <button>Home Page</button>
+    </div>
+    <div class="article_Frequently">
+      <h2>Frequently Asked Questions</h2>
+      <p>Explore our FAQ for quick answers on using our streaming service, from subscription details
+        to troubleshooting. Get the help you need to enjoy your favorite movies and shows effortlessly!</p>
+      <div class="article_Frequently_extend">
+        <input type="checkbox" id="plus">
+        <label for="plus" class="iii">
+          <span>What is Catflix?</span>
+          <img src="../images/plus.svg" alt="">
+        </label>
+        <div class="article_Frequently_extend_text">Catflix is a streaming platform offering a wide range of movies and
+          TV series. With us, you can enjoy
+          exciting, high-quality content on any device, anytime - for free.</div>
+      </div>
+    </div>
+  </article>
+  <footer>
+    <div class="footer_button">
+      <img src="../images/catflix.svg" alt="">
+      <div class="footer_button_zj">
+        <a href="#">Home</a>
+        <a href="#">Movies</a>
+        <a href="#">Series</a>
+        <a href="#">Search</a>
+      </div>
+      <div class="footer_button_zj style2">
+        <a href="#">@Distv+2023</a>
+        <a href="#">Home</a>
+        <a href="#">Movies</a>
+        <a href="#">Series</a>
+        <a href="#">Search</a>
+      </div>
+    </div>
+  </footer>
+  <!-- 大屏隐藏的固定tab栏 -->
+  <div class="fixation">
+    <div class="fixation_div">
+      <a href="#" class="fixation_div_item">
+        <img src="../images/home.svg" alt="">
+        <span>Home</span>
+      </a>
+      <a href="#" class="fixation_div_item">
+        <img src="../images/movies.svg" alt="">
+        <span>Movies</span>
+      </a>
+      <a href="#" class="fixation_div_item">
+        <img src="../images/series.svg" alt="">
+        <span>Series</span>
+      </a>
+      <a href="#" class="fixation_div_item">
+        <img src="../images/search.svg" alt="">
+        <span>Search</span>
+      </a>
+    </div>
+  </div>
+  <div class="quxiao">
+    <div class="clickBox">
+      <h1>catflix</h1>
+      <p>Create new account</p>
+      <input type="text" placeholder="Username">
+      <input type="email" name="" id="" placeholder="Email">
+      <input type="password" name="" id="" placeholder="Password">
+      <input type="button" value="Create account">
+      <span>Already a member? <a href="#">Sign in</a></span>
+    </div>
+  </div>
+</body>
+<script src="../js/06.js"></script>
+
+</html>

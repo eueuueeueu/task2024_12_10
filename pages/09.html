@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 100px
+    }
+    html{
+      transition: all .5s;
+    }
+    .buttonBox {
+      position: relative;
+      width: 70px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      border: 3px solid #3a63ff;
+      border-radius: 30px;
+      margin-left: 10px;
+      justify-content: space-around;
+      padding: 1px 0;
+    }
+
+    .flag {
+      position: absolute;
+      /* background-color: #4463fe; */
+      width: 30px;
+      height: 30px;
+      border-radius: 100%;
+      left: 2px;
+      transition: all .3s;
+      /* transform: translateX(36px); */
+    }
+
+    .flag use {
+      color: #fbb45a;
+    }
+    
+    .buttonBox svg {
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      transition: all .5s;
+    }
+    p {
+      font-size: 30px;
+      transition: all .5s;
+    }
+  </style>
+</head>
+
+<body>
+  <svg style="display: none;">
+    <!-- <symbol id="icon1" viewBox="0 0 24 24">
+      <g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
+        <path d="M17 12a5 5 0 1 1-10 0a5 5 0 0 1 10 0m-1.5 0a3.5 3.5 0 1 1-7 0a3.5 3.5 0 0 1 7 0" />
+        <path
+          d="M7.455 3.464A1 1 0 0 1 9.017 2.8l2.337 1.64a1 1 0 0 0 1.164-.01l2.306-1.682a1 1 0 0 1 1.574.635l.492 2.812a1 1 0 0 0 .831.816l2.82.441a1 1 0 0 1 .664 1.563l-1.64 2.336a1 1 0 0 0 .01 1.164l1.683 2.307a1 1 0 0 1-.635 1.574l-2.812.492a1 1 0 0 0-.816.83l-.441 2.821a1 1 0 0 1-1.563.664l-2.336-1.64a1 1 0 0 0-1.164.01l-2.307 1.683a1 1 0 0 1-1.574-.636l-.492-2.812a1 1 0 0 0-.83-.816l-2.821-.44a1 1 0 0 1-.664-1.563l1.64-2.337a1 1 0 0 0-.01-1.164L2.75 9.182a1 1 0 0 1 .636-1.574l2.812-.493a1 1 0 0 0 .815-.83zm1.04 3.053l.317-2.028l1.68 1.18a2.5 2.5 0 0 0 2.91-.027l1.657-1.21l.354 2.022a2.5 2.5 0 0 0 2.076 2.039l2.027.317l-1.179 1.68a2.5 2.5 0 0 0 .027 2.91l1.209 1.657l-2.021.354a2.5 2.5 0 0 0-2.04 2.076l-.316 2.027l-1.68-1.179a2.5 2.5 0 0 0-2.91.026l-1.657 1.21l-.354-2.022a2.5 2.5 0 0 0-2.076-2.038l-2.027-.318l1.179-1.679a2.5 2.5 0 0 0-.027-2.91L4.435 8.947l2.021-.354a2.5 2.5 0 0 0 2.04-2.076" />
+      </g>
+    </symbol> -->
+    <symbol id="icon1" viewBox="0 0 24 24">
+      <path fill="currentColor"
+        d="M12.003 21q-1.866 0-3.51-.708q-1.643-.709-2.859-1.924t-1.925-2.856T3 12.003t.709-3.51Q4.417 6.85 5.63 5.634t2.857-1.925T11.997 3t3.51.709q1.643.708 2.859 1.922t1.925 2.857t.709 3.509t-.708 3.51t-1.924 2.859t-2.856 1.925t-3.509.709" />
+    </symbol>
+    <symbol id="icon2" viewBox="0 0 24 24">
+      <g fill="none" fill-rule="evenodd">
+        <path
+          d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+        <path fill="currentColor"
+          d="M13.574 3.138a1.01 1.01 0 0 0-1.097 1.408a6 6 0 0 1-7.931 7.931a1.01 1.01 0 0 0-1.409 1.097A9 9 0 0 0 21 12a9 9 0 0 0-7.426-8.862" />
+      </g>
+    </symbol>
+  </svg>
+  <div class="main">
+    <p>Mancuoj</p>
+    <div class="buttonBox">
+      <div class="flag">
+        <svg style="color: #fff;" class="none">
+          <use xlink:href="#icon1"></use>
+        </svg>
+        <svg style="color: #fff;">
+          <use xlink:href="#icon2"></use>
+        </svg>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="../js/09.js"></script>
+
+</html>
