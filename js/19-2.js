@@ -9,8 +9,8 @@ const PREV_TYPE = 'PREV'
 const CURRENT_TYPE = 'CURRENT'
 const NEXT_TYPE = 'NEXT'
 const WEEK_DATE_COUNT = 7
-let currentYear = 2024
-let currentMonth = 12
+let currentYear = new Date().getFullYear()
+let currentMonth = new Date().getMonth() + 1
 function getDateOfMonth(year, month) {
   let dateInstance = new Date(year, month, 0)
   let dateCount = dateInstance.getDate()
@@ -28,20 +28,21 @@ function updateYearAndMonth(newYear, newMonth) {
 }
 // 初始化年月
 function bindEvent() {
+  updateYearAndMonth(currentYear, currentMonth)
   let calendarRoot = document.querySelector('.calendar')
   let dateInstance = new Date(currentYear, currentMonth - 1)
   calendarRoot.addEventListener('click', function (e) {
     let className = e.target.className
     if (className === 'previous') {
       dateInstance.setMonth(dateInstance.getMonth() - 1)
-      // console.log(dateInstance.getFullYear(),dateInstance.getMonth());
+      creatCalendar(dateInstance.getFullYear(), dateInstance.getMonth() + 1)
+      updateYearAndMonth(dateInstance.getFullYear(), dateInstance.getMonth() + 1)
     }
     if (className === 'next') {
       dateInstance.setMonth(dateInstance.getMonth() + 1)
-      // console.log(dateInstance.getFullYear(), dateInstance.getMonth());
+      creatCalendar(dateInstance.getFullYear(), dateInstance.getMonth() + 1)
+      updateYearAndMonth(dateInstance.getFullYear(), dateInstance.getMonth() + 1)
     }
-    creatCalendar(dateInstance.getFullYear(), dateInstance.getMonth() + 1)
-    updateYearAndMonth(dateInstance.getFullYear(), dateInstance.getMonth() + 1)
   })
 }
 bindEvent()
@@ -126,5 +127,4 @@ function creatCalendar(year, month) {
   // 点击高亮函数
   clickLightness(year, month)
 }
-
-creatCalendar(2024, 12)
+creatCalendar(currentYear, currentMonth)
