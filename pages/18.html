@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      overflow: hidden;
+    }
+
+    .add {
+      width: 150px;
+      height: 60px;
+      font-weight: 700;
+      cursor: pointer;
+      background-color: #f3f3f3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 0;
+      border-radius: 10px;
+    }
+
+    .block {
+      position: absolute;
+      right: 20px;
+      bottom: 0;
+      width: 300px;
+      height: 100px;
+      box-shadow: 0 0 6px 0 #111;
+      border-radius: 10px;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      opacity: 0;
+      animation-duration: .5s;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
+    }
+
+    .block h1 {
+      font-size: 20px;
+    }
+
+    .block button {
+      border: 0;
+      font-size: 16px;
+      font-weight: 600;
+      background-color: #fff;
+    }
+
+    @keyframes up {
+      0% {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+    }
+
+    @keyframes down {
+      0% {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <button class="add">添加到日历</button>
+  <div class="block">
+    <div>
+      <h1>预定:赶上</h1>
+      <p>2023年2月10日星期五下午5:57</p>
+    </div>
+    <button>撤销</button>
+  </div>
+</body>
+<script>
+  let btn = document.querySelector('.add')
+  let block = document.querySelector('.block')
+  btn.addEventListener('click', () => {
+    block.style.animationName = 'up'
+    let timer = setTimeout(() => {
+      block.style.animationName = 'down'
+    }, 1000);
+    block.addEventListener('mouseenter', () => {
+      clearTimeout(timer)
+    })
+    block.addEventListener('mouseleave', () => {
+      timer = setInterval(() => {
+        block.style.animationName = 'down'
+      }, 1000);
+    })
+  })
+</script>
+
+</html>

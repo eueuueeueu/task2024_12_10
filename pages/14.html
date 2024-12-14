@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../styles/14.css">
+</head>
+
+<body>
+  <div class="box">
+    <input id="btn" type="checkbox">
+    <label for="btn" class="checkboxFales"></label>
+    <label for="btn" class="checkboxTrue">X</label>
+  </div>
+</body>
+<script>
+  let checkbox = document.querySelector('#btn')
+  let box = document.querySelector('.box')
+  let isDark = true
+  checkbox.addEventListener('change', () => {
+    box.style.animationName = isDark === true ? 'move' : ''
+    isDark = isDark === true ? false : true
+  })
+</script>
+
+</html>

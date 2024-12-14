@@ -1,0 +1,79 @@
+@property --range {
+  syntax: "<percentage>";
+  inherits: true;
+  initial-value: 0%;
+}
+:root {
+  --range: 0%;
+}
+@keyframes move {
+  0% {
+    transform: translateY(150px);
+    --range: 0%;
+  }
+  100% {
+    --range: 100%;
+  }
+}
+.box {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 200px;
+  border-radius: 10px;
+  background-image: radial-gradient(
+    circle at 50% 50%,
+    #015bff 0%,
+    #015bff var(--range),
+    white var(--range),
+    white 100%
+  );
+  animation-duration: 0.1s;
+  animation-fill-mode: forwards;
+}
+
+#btn {
+  display: none;
+}
+#btn:checked ~ .box .checkboxFales::after {
+  content: "我是弹窗";
+}
+#btn:checked ~ .box .checkboxFales ~ .checkboxTrue {
+  display: block;
+}
+#btn:checked ~ .box {
+  animation-name: move;
+}
+.box label {
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+}
+
+.box .checkboxFales {
+  line-height: 40px;
+  width: 90px;
+  height: 40px;
+  background-color: #015bff;
+  border: 0;
+  border-radius: 30px;
+  color: #fff;
+}
+.box .checkboxFales::after {
+  content: "唤起弹窗";
+}
+.box .checkboxTrue {
+  display: none;
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  box-shadow: 0 0 8px 0px #000000;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  background-color: #fff;
+}

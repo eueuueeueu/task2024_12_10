@@ -1,0 +1,68 @@
+@property --degree {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0deg;
+}
+@property --bgDeg {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0deg;
+}
+:root {
+  --bgDeg: 0deg;
+  --degree: 0deg;
+}
+@keyframes circle {
+  to {
+    --degree: 360deg;
+  }
+}
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 220px;
+  height: 150px;
+  background-color: pink;
+}
+
+.box > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: conic-gradient(#4804f5 0 var(--bgDeg), #ccc var(--bgDeg) 360deg);
+  background-color: red;
+  transform: rotate(var(--degree));
+}
+
+.box .loading {
+  animation: circle 1s linear infinite;
+}
+body .box:last-child {
+  width: 350px;
+}
+
+.box button {
+  width: 50px;
+  height: 30px;
+  border-radius: 5px;
+  border: 0;
+  color: #fff;
+  background-color: #4804f5;
+}
+
+.write {
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.progressBar {
+  position: relative;
+}
+.progressBar p {
+  position: absolute;
+}

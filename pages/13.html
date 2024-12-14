@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .overflow {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 240px;
+      height: 30px;
+      border-radius: 20px;
+      background-color: #015bff;
+      overflow: hidden;
+    }
+
+    .overflow p {
+      height: 30px;
+      margin: 0;
+      line-height: 30px;
+      color: white;
+    }
+
+    .move {
+      animation-name: move;
+      animation-duration: 3s;
+      animation-iteration-count: infinite;
+      transform: translateY(0px);
+      animation-timing-function: linear;
+    }
+
+    @keyframes move {
+      100% {
+        transform: translateY(-120px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="overflow">
+    <div class="move">
+      <p>小李同学加入了DW241031</p>
+      <p>小王同学加入了DW241031</p>
+      <p>小刘同学加入了DW241031</p>
+      <p>小邓同学加入了DW241031</p>
+      <p>小李同学加入了DW241031</p>
+    </div>
+  </div>
+
+
+</body>
+
+</html>
