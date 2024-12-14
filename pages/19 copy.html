@@ -36,6 +36,8 @@
       height: 30px;
       display: inline-block;
       cursor: pointer;
+      /* 取消文字双击选中文字的效果 */
+      user-select: none;
     }
 
     .calendar span:nth-of-type(1) {
@@ -46,10 +48,15 @@
       right: 20px;
     }
 
-    .calendar span:hover {
+    .calendar .previous:hover,
+    .calendar .next:hover {
       background-color: #f3f3f3;
     }
-
+    .calendar .previous:active,
+    .calendar .next:active{
+      color: #beafaf;
+      border-color: #333;
+    }
     table {
       border-collapse: collapse;
       margin: 0 auto;
@@ -67,9 +74,21 @@
     .trueClicktd{
       cursor: pointer;
     }
+    .trueClicktd:hover{
+      color: #fff;
+      background-color: #333;
+      border-radius: 10px;
+    }
     .falseClicktd{
       color: #ccc;
       cursor: not-allowed;
+    }
+    .thisDateBgc{
+      background-color: #ccc;
+    }
+    .clickBlack{
+      color: white;
+      background-color: black;
     }
   </style>
 </head>

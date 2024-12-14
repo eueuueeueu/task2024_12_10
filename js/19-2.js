@@ -5,7 +5,12 @@
 // 2.获取12月有多少天
 // 3.7-(计算第一步+第二步)%7
 // 4.将以上3步，分别生成html
-
+const PREV_TYPE = 'PREV'
+const CURRENT_TYPE = 'CURRENT'
+const NEXT_TYPE = 'NEXT'
+const WEEK_DATE_COUNT = 7
+let currentYear = 2024
+let currentMonth = 12
 function getDateOfMonth(year, month) {
   let dateInstance = new Date(year, month, 0)
   let dateCount = dateInstance.getDate()
@@ -16,11 +21,32 @@ function getDayOfMonthFirstDate(year, month) {
   let day = dateInstance.getDay()
   return day;
 }
+// 更新年月
+function updateYearAndMonth(newYear, newMonth) {
+  let titleValue = document.querySelector('.calendar h1 p')
+  titleValue.innerText = `${newMonth} ${newYear}`
+}
+// 初始化年月
+function bindEvent() {
+  let calendarRoot = document.querySelector('.calendar')
+  let dateInstance = new Date(currentYear, currentMonth - 1)
+  calendarRoot.addEventListener('click', function (e) {
+    let className = e.target.className
+    if (className === 'previous') {
+      dateInstance.setMonth(dateInstance.getMonth() - 1)
+      // console.log(dateInstance.getFullYear(),dateInstance.getMonth());
+    }
+    if (className === 'next') {
+      dateInstance.setMonth(dateInstance.getMonth() + 1)
+      // console.log(dateInstance.getFullYear(), dateInstance.getMonth());
+    }
+    creatCalendar(dateInstance.getFullYear(), dateInstance.getMonth() + 1)
+    updateYearAndMonth(dateInstance.getFullYear(), dateInstance.getMonth() + 1)
+  })
+}
+bindEvent()
 // 创建日期单元格文档片段的方法
-const PREV_TYPE = 'PREV'
-const CURRENT_TYPE = 'CURRENT'
-const NEXT_TYPE = 'NEXT'
-const WEEK_DATE_COUNT = 7
+
 function creatDateCellFragment(start, end, type) {
   // 文档碎片，用来承载很多标签，可以节约性能
   let fragment = document.createDocumentFragment()
@@ -59,7 +85,27 @@ function addElement(ele1, ele2) {
     tbody.appendChild(tr);
   }
 }
+function clickLightness(year, month) {
+  let thisDate = new Date()
+  let td = document.querySelectorAll('td')
+  for (let i = 0; i < td.length; i++) {
+    if (td[i].innerText === thisDate.getDate().toString() && year === thisDate.getFullYear() && month === thisDate.getMonth() + 1) {
+      td[i].classList.add('thisDateBgc', 'clickBlack')
+    }
+    if (td[i].className.indexOf('falseClicktd') === -1) {
+      td[i].addEventListener('click', function (e) {
+        e.stopPropagation()
+        if (document.querySelector('.clickBlack') !== null) {
+          document.querySelector('.clickBlack').classList.remove('clickBlack')
+        }
+        this.classList.add('clickBlack')
+      })
+    }
+  }
+}
 function creatCalendar(year, month) {
+  let tbody = document.querySelector('tbody')
+  tbody.innerHTML = ''
   let mainFragment = document.createDocumentFragment()
   let currentMonthDateCount = getDateOfMonth(year, month)
   let PrevMonthDateCount = getDateOfMonth(year, month - 1)
@@ -77,6 +123,8 @@ function creatCalendar(year, month) {
   // console.log(mainFragment.children)
   // 添加到tbody
   addElement('tbody', mainFragment)
+  // 点击高亮函数
+  clickLightness(year, month)
 }
 
 creatCalendar(2024, 12)
