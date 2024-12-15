@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    input {
+      text-align: center;
+      width: 50px;
+      height: 50px;
+      border: 1px solid #ccc;
+    }
+
+    input:first-of-type {
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+    }
+
+    input:nth-of-type(6) {
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+
+    input:last-of-type {
+      opacity: 0;
+    }
+
+    input:focus {
+      outline: none;
+      border: 3px solid #8b8989;
+    }
+
+    .box .dot {
+      width: 4px;
+      height: 4px;
+      margin: 0 23px;
+      border-radius: 50%;
+      background-color: black;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <div class="dot"></div>
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+  </div>
+</body>
+<script src="../js/20.js"></script>
+
+</html>
