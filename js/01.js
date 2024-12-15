@@ -13,7 +13,10 @@ function getDate(time) {
   let dayLevel = document.querySelector('.dayLevel h2')
   dayLevel.innerHTML = `${day}天${hour}时${minute}分${second}秒`
 }
-getDate('2024/12/16')
+// 距离现在时间的两天后的0点还有多久
+let nowTimeAddTowDate = `${new Date().getFullYear()}/${new Date().getMonth() + 1}/${new Date().getDate() + 2}`
+console.log('距离', nowTimeAddTowDate, '的时间');
+getDate(nowTimeAddTowDate)
 setInterval(() => {
-  getDate('2024/12/16')
+  getDate(nowTimeAddTowDate)
 }, 100)
