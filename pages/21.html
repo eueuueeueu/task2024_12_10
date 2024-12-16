@@ -81,7 +81,7 @@
       // 点击每一个具体日期后隐藏
       calendar.hide()
     }
-  })
+  },true)
   datePicker.addEventListener('click', function (e) {
     e.stopPropagation()
     if (!e.target.classList.contains('trueClicktd') && !calendar.getVisible()) {

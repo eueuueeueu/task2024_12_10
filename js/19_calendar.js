@@ -190,8 +190,8 @@
     },
     hide: hideCalendar,
     show: blockCalendar,
-    init: function (config) {
-      configSelected = config.selected
+    init: function (config, flag = false) {
+      if (flag) configSelected = config.selected
       bindEvent()
     }
   }
