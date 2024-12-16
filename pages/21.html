@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../styles/19_calendar.css">
+  <style>
+    .datePicker {
+      position: relative;
+    }
+
+    .datePicker_btn {
+      width: 230px;
+      height: 30px;
+      border: 1px solid rgb(0, 183, 255);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .datePicker .datePicker_btn #datePickerClickEle {
+      background-color: #fff;
+      border: 0;
+      width: 150px;
+      height: 30px;
+      text-align: start;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .datePicker .datePicker_btn span {
+      cursor: pointer;
+    }
+
+    .calendar {
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="datePicker">
+    <div class="datePicker_btn">
+      <span>选择时间</span>
+      <input type="input" placeholder="选择时间" id="datePickerClickEle" />
+    </div>
+    <div class="calendar">
+      <h1>
+        <span class="previous">&#60;</span>
+        <p></p>
+        <span class="next">&#62;</span>
+      </h1>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Su</th>
+            <th>Mo</th>
+            <th>Tu</th>
+            <th>We</th>
+            <th>Th</th>
+            <th>Fr</th>
+            <th>Sa</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+<script src="../js/19_calendar.js"></script>
+<script>
+  let datePicker = document.querySelector('.datePicker')
+  let datePicker_btn = document.querySelector('.datePicker_btn input')
+  calendar.init({
+    selected: function (res) {
+      datePicker_btn.value = `${res.year}-${res.month}-${res.date}`
+      // 点击每一个具体日期后隐藏
+      calendar.hide()
+    }
+  })
+  datePicker.addEventListener('click', function (e) {
+    e.stopPropagation()
+    if (!e.target.classList.contains('trueClicktd') && !calendar.getVisible()) {
+      calendar.show()
+    }
+  })
+  document.documentElement.addEventListener('click', function (e) {
+    calendar.getVisible() && calendar.hide()
+  })
+</script>
+
+</html>

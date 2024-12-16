@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./styles/19_calendar.css">
+</head>
+
+<body>
+  <div class="calendar">
+    <h1>
+      <span class="previous">&#60;</span>
+      <p></p>
+      <span class="next">&#62;</span>
+    </h1>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Su</th>
+          <th>Mo</th>
+          <th>Tu</th>
+          <th>We</th>
+          <th>Th</th>
+          <th>Fr</th>
+          <th>Sa</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      </tbody>
+    </table>
+  </div>
+</body>
+<script src="./js/19_calendar.js"></script>
+<script>
+  // 全局变量是不安全的 尽可能少的定义全局变量
+  // 将我们定义的全局变量保护起来
+  // let arr = 123
+  // function echo() {
+  //   console.log(arr);
+
+  // }
+  // function bar() {
+  //   let arr = 456
+  //   echo()
+  // }
+  // bar()
+  // 全局(没有被任何函数包裹的区域)  -->  顶级作用域
+
+
+  (function (window, document) {
+    var count = 1
+    function add() {
+      count++
+    }
+    function echoCount() {
+      console.log(count);
+    }
+    window.add = add
+    window.echoCount = echoCount
+  })(window, document)//虽然window是全局变量，但是变量查找需要性能，所以这里传进去节约性能
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>
